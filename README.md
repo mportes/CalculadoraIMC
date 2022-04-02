@@ -5,6 +5,7 @@ Aplicação console para cálculo do IMC.
 ## Funcionalidades
 
 - Calcula o IMC
+- Informa a classificação do IMC
 
 ## Tecnologias utilizadas
 
