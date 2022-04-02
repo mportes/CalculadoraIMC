@@ -50,12 +50,12 @@ namespace CalculadoraIMC
             if(imc < 18.5)
             {
                 pesoNormal = 18.5 * altura * altura;
-                Console.WriteLine("Você precisa ganhar {0}kg para chegar ao peso normal.", Math.Round((pesoNormal - peso), 5));
+                Console.WriteLine("Você precisa ganhar {0}kg para chegar ao peso normal.", Math.Round((pesoNormal - peso), 3));
             }
             else if(imc >= 25.0)
             {
                 pesoNormal = 24.9 * altura * altura;
-                Console.WriteLine("Você precisa perder {0}kg para chegar ao peso normal.", Math.Round((peso - pesoNormal), 5));
+                Console.WriteLine("Você precisa perder {0}kg para chegar ao peso normal.", Math.Round((peso - pesoNormal), 3));
             }
         }
     }
