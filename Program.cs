@@ -1,51 +1,26 @@
-﻿Console.WriteLine("Qual o seu nome?");
-string nome = Console.ReadLine();
+﻿Individuo i = new Individuo();
 
-Console.WriteLine("\nQual a sua altura? Ex: 1,65");
-float altura = Convert.ToSingle(Console.ReadLine());
+Console.WriteLine("Qual o seu nome?");
+i.Nome = Console.ReadLine();
 
-Console.WriteLine("\nQual o seu peso em Kg? Ex: 57,4");
-float peso = Convert.ToSingle(Console.ReadLine());
+Console.WriteLine("\nQual a sua altura em metros? Ex: 1,65");
+i.Altura = Convert.ToSingle(Console.ReadLine());
 
-double imc = Math.Round((peso / (altura * altura)), 2);
+Console.WriteLine("\nQual o seu peso em kg? Ex: 57,4");
+i.Peso = Convert.ToSingle(Console.ReadLine());
 
-Console.WriteLine("\n{0}, sua altura é {1}m e seu peso é {2}kg", nome, altura, peso);
-Console.WriteLine("Seu IMC é {0}", imc);
-Console.Write("Classificação: ");
+Console.WriteLine("------------------------");
+Console.WriteLine("Nome: {0}", i.Nome);
+Console.WriteLine("Altura: {0}m", i.Altura);
+Console.WriteLine("Peso: {0}kg", i.Peso);
+Console.WriteLine("IMC: {0}", Math.Round(i.IMC, 2));
+Console.WriteLine("Classificação: {0}", i.Classificacao);
 
-if(imc < 18.5)
+if(i.IMC < 18.5)
 {
-    Console.WriteLine("Abaixo do Peso");
+    Console.WriteLine("\nVocê precisa ganhar {0}kg para chegar ao seu peso ideal.", Math.Round(i.GanharPeso(), 2));
 }
-else if(imc >= 18.5 && imc <= 24.9)
+else if(i.IMC > 24.9)
 {
-    Console.WriteLine("Peso Normal");
-}
-else if(imc >= 25.0 && imc <= 29.9)
-{
-    Console.WriteLine("Sobrepeso");
-}
-else if(imc >= 30.0 && imc <= 34.9)
-{
-    Console.WriteLine("Obesidade Grau I");
-}
-else if(imc >= 35.0 && imc <= 39.9)
-{
-    Console.WriteLine("Obesidade Grau II");
-}
-else
-{
-    Console.WriteLine("Obesidade Grau III ");
-}
-
-double pesoNormal;
-if(imc < 18.5)
-{
-    pesoNormal = 18.5 * altura * altura;
-    Console.WriteLine("Você precisa ganhar {0}kg para chegar ao peso normal.", Math.Round((pesoNormal - peso), 3));
-}
-else if(imc >= 25.0)
-{
-    pesoNormal = 24.9 * altura * altura;
-    Console.WriteLine("Você precisa perder {0}kg para chegar ao peso normal.", Math.Round((peso - pesoNormal), 3));
+    Console.WriteLine("\nVocê precisa perder {0}kg para chegar ao seu peso ideal.", Math.Round(i.PerderPeso(), 2));
 }
