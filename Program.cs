@@ -18,9 +18,9 @@ Console.WriteLine("Classificação: {0}", i.Classificacao);
 
 if(i.IMC < 18.5)
 {
-    Console.WriteLine("\nVocê precisa ganhar {0}kg para chegar ao seu peso ideal.", Math.Round(i.GanharPeso(), 2));
+    Console.WriteLine("\nVocê precisa ganhar {0}kg para chegar ao seu peso ideal.", Math.Round(i.PesoIdeal, 2));
 }
 else if(i.IMC > 24.9)
 {
-    Console.WriteLine("\nVocê precisa perder {0}kg para chegar ao seu peso ideal.", Math.Round(i.PerderPeso(), 2));
+    Console.WriteLine("\nVocê precisa perder {0}kg para chegar ao seu peso ideal.", Math.Round(i.PesoIdeal, 2));
 }

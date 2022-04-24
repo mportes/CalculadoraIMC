@@ -4,6 +4,7 @@ public class Individuo
     public float Altura { get; set; }
     public float Peso { get; set; }
     public double IMC { get => Peso / (Altura * Altura); }
+
     public string Classificacao
     {
         get {
@@ -11,19 +12,19 @@ public class Individuo
             {
                 return "Abaixo do Peso";
             }
-            else if(IMC >= 18.5 && IMC <= 24.9)
+            else if(IMC <= 24.9)
             {
                 return "Peso Normal";
             }
-            else if(IMC >= 25.0 && IMC <= 29.9)
+            else if(IMC <= 29.9)
             {
                 return "Sobrepeso";
             }
-            else if(IMC >= 30.0 && IMC <= 34.9)
+            else if(IMC <= 34.9)
             {
                 return "Obesidade Grau I";
             }
-            else if(IMC >= 35.0 && IMC <= 39.9)
+            else if(IMC <= 39.9)
             {
                 return "Obesidade Grau II";
             }
@@ -31,6 +32,15 @@ public class Individuo
             {
                 return "Obesidade Grau III ";
             }
+        }
+    }
+
+    public double PesoIdeal
+    { 
+        get {
+            if(IMC < 18.5) return ((18.5 * Altura * Altura) - Peso);
+            if(IMC > 24.9) return (Peso - (24.9 * Altura * Altura));
+            else return 0;
         }
     }
 
@@ -47,7 +57,4 @@ public class Individuo
         Altura = altura;
         Peso = peso;
     }
-
-    public double GanharPeso() => (18.5 * Altura * Altura) - Peso;
-    public double PerderPeso() => Peso - (24.9 * Altura * Altura);
 }
